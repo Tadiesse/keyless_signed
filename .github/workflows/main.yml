@@ -12,11 +12,11 @@ jobs:
     steps:
     - name: Build Docker Image
       run: |
-        docker buildx build \
+        docker build \
           --file Dockerfile \
           --tag ghcr.io/tadiesse/hello-world:latest \
           .
-      working-directory: ./  # Path to your Dockerfile
+      working-directory: ./
 
     - name: Publish Docker Image to GHCR
       run: |
