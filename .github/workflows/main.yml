@@ -15,7 +15,7 @@ jobs:
         docker build \
           --file Dockerfile \
           --tag ghcr.io/tadiesse/hello-world:latest \
-          ghcr.io/tadiesse/public-Docker/
+          tadiesse/public-Docker/
 
     - name: Publish Docker Image to GHCR
       run: |
