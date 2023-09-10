@@ -13,7 +13,7 @@ jobs:
     - name: Build Docker Image
       run: |
         docker build \
-          --file Dockerfile \
+          --file ghcr.io/tadiesse/public-Docker/Dockerfile \
           --tag ghcr.io/tadiesse/hello-world:latest \
           .
       working-directory: ./
