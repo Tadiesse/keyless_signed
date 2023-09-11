@@ -24,7 +24,7 @@ jobs:
           password: ${{secrets.GITHUB_TOKEN}}
           
       - name: 'Build Inventory Image'
-        working-directory: ./Store
+        working-directory: ./
         run: |
           docker build . --tag ghcr.io/tadiesse/store:latest
           docker push ghcr.io/tadiesse/store:latest
