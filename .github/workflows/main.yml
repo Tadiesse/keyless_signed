@@ -1,8 +1,5 @@
 name: Deploy Images to GHCR
 
-env:
-  DOTNET_VERSION: '6.0.x'
-  
 on:
   push:
     branches:
@@ -20,8 +17,8 @@ jobs:
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
-          username: ${{github.actor}}
-          password: ${{secrets.GITHUB_TOKEN}}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
           
       - name: 'Build Inventory Image'
         working-directory: ./
