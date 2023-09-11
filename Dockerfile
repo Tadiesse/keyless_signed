@@ -1,5 +1,5 @@
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
-LABEL org.opencontainers.image.source="https://github.com/willvelida/dapr-store-app"
+LABEL org.opencontainers.image.source="https://github.com/tadiesse/public-Docker"
 WORKDIR /app
 EXPOSE 80
 
