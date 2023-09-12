@@ -25,3 +25,10 @@ jobs:
         run: |
           docker build . --tag ghcr.io/tadiesse/store:latest
           docker push ghcr.io/tadiesse/store:latest
+
+      - name: Sign image with a key
+        run: |
+          cosign sign --yes --key env://COSIGN_PRIVATE_KEY  ghcr.io/${{ github.repository }}:latest
+        env:
+          COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
+          COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
