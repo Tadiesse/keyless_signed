@@ -22,9 +22,7 @@ jobs:
           
       - name: 'Build Inventory Image'
         working-directory: ./
-        run: |
-          docker build . --tag ghcr.io/tadiesse/store:latest
-          docker push ghcr.io/tadiesse/store:latest
+        run: docker build . --tag ghcr.io/tadiesse/store:latest
           
       - name: cosign-installer
         uses: sigstore/cosign-installer@v2.0.0
@@ -38,4 +36,7 @@ jobs:
       - name: Sign the published Docker image
         env:
           COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
-        run: cosign sign --key cosign.key ${{ env.ghcr.io }}/${{ github.actor }}/${{ env.store }}:${{ github.run_id }}    
+        run: cosign sign --key cosign.key ghcr.io/tadiesse/store:latest
+
+      - name: Push the signed image on GHCR
+        run: docker push ghcr.io/tadiesse/store:latest
